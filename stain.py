@@ -58,16 +58,12 @@ def shift_image(path, filter_h, filter_s, filter_l, shift_h, shift_s, shift_l, s
     sl, su = filter_s
     ll, lu = filter_l
     img = load_img(path)
-    print("loaded image")
     img_hsl = hasel.rgb2hsl(img)
-    print("converted to hsl")
     img_hsl_new = transform_loop(img_hsl, hl, hu, sl, su, ll, lu, shift_h, shift_s, shift_l)
-    print("completed shift")
     img_rgb = hasel.hsl2rgb(img_hsl_new)
-    print("converted to rgb")
     new_img = Image.fromarray(img_rgb).convert("RGBA")
-    print("created new image")
     new_img.save(savename)
+    print("Created new image")
 
 def main():
     parser = argparse.ArgumentParser(prog="stain",
