@@ -89,7 +89,8 @@ def main():
     parser.add_argument("-sh", "--shift_h", type=int, default=0, metavar="shift_h")
     parser.add_argument("-ss", "--shift_s", type=int, default=0, metavar="shift_s")
     parser.add_argument("-sl", "--shift_l", type=int, default=0, metavar="shift_l")
-    parser.add_argument("-o", "--output", metavar="output_path", default=False)
+    parser.add_argument("-o", "--output", metavar="output_path", default=False,
+                        help="Default: {path}_stained.png")
     args = parser.parse_args()
     path = Path(args.path)
     if args.output:
@@ -102,7 +103,7 @@ def main():
             print("Please provide a valid output path")
             exit()
     else:
-        newpath = path.with_stem(path.stem + "_shifted")
+        newpath = path.with_stem(path.stem + "_stained")
     shift_image(path,
                 args.filter_h, args.filter_s, args.filter_l,
                 args.shift_h, args.shift_s, args.shift_l,
