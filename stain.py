@@ -8,6 +8,7 @@ import numpy as np
 from PIL import Image
 from numba import jit
 from pathlib import Path
+
 def load_img(path):
     img = np.array(Image.open(path).convert("RGB"))
     return img
@@ -63,7 +64,7 @@ def shift_image(path, filter_h, filter_s, filter_l, shift_h, shift_s, shift_l, s
     img_rgb = hasel.hsl2rgb(img_hsl_new)
     new_img = Image.fromarray(img_rgb).convert("RGBA")
     new_img.save(savename)
-    print("Created new image")
+    print(f"Saved new image as {savename}")
 
 def main():
     parser = argparse.ArgumentParser(prog="stain",

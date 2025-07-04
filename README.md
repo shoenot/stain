@@ -6,7 +6,7 @@ For example, to select pixels with saturation values between 0 and 40, and then 
 
 ```console
 shoenot@computer:~$ ./stain.py pixel_buildings.png -fs 0 40 -sh 230 -sl -10 -ss 5
-Created new image
+Saved new image as /home/shoenot/pixel_buildings_stained.png /
 ```
 Before:
 ![Before picture](./assets/pixel_buildings.png)
